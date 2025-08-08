@@ -51,30 +51,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
-        {/* Spacer to balance layout */}
-        <div className="opacity-0 flex items-center gap-3">
-          <div className="h-9 w-9" />
-          <div className="h-9 w-9" />
-        </div>
-      </div>
-
-      {/* Search bar under header */}
-      <div className="bg-primary-foreground/10 backdrop-blur-sm">
-        <div className="container py-3">
-          <div className="mx-auto w-full max-w-md relative">
-            <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-primary-foreground/70 pointer-events-none" />
-            <input
-              type="search"
-              placeholder="ابحث عن منتج"
-              aria-label="ابحث عن منتج"
-              className="w-full rounded-md pr-12 pl-4 py-2 bg-primary-foreground/20 border border-primary-foreground/30 text-primary-foreground placeholder:text-primary-foreground/70 focus:outline-none focus:bg-primary-foreground/30 transition"
-            />
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-export default Header;
