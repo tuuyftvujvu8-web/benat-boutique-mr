@@ -8,10 +8,12 @@ const Header: React.FC = () => {
       {/* Top bar */}
       <div className="container relative flex items-center justify-between h-16">
         {/* Right actions (RTL): Cart then User */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 ml-auto">
+          <div className="flex items-center gap-3 ml-auto">
           <Link to="/cart" aria-label="سلة المشتريات" title="سلة المشتريات" className="p-2">
             <ShoppingCart className="w-6 h-6 text-primary-foreground" />
           </Link>
+          </div>
           <Link to="/auth" aria-label="الحساب" title="الحساب" className="p-2">
             <User className="w-6 h-6 text-primary-foreground" />
           </Link>
