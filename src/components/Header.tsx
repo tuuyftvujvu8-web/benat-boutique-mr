@@ -1,27 +1,27 @@
 import React from "react";
 import { ShoppingCart, User, Search } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="sticky top-0 z-40 w-full bg-banat-pink text-primary-foreground shadow-soft" role="banner">
       {/* Top bar */}
       <div className="container relative flex items-center justify-between h-16">
-        {/* Right actions (RTL): Cart then User */}
+        {/* Right actions: Cart */}
         <div className="flex items-center gap-3">
-           <Button
-             variant="ghost"
-             size="icon"
-             className="text-primary-foreground hover:bg-primary-foreground/20 p-2"
-             onClick={() => navigate("/cart")}
-             aria-label="سلة المشتريات"
-             title="سلة المشتريات"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-primary-foreground hover:bg-primary-foreground/20 p-2"
+            onClick={() => navigate("/cart")}
+            aria-label="سلة المشتريات"
+            title="سلة المشتريات"
           >
-     <ShoppingCart className="w-6 h-6" />
+            <ShoppingCart className="w-6 h-6" />
           </Button>
-          <Link to="/auth" aria-label="الحساب" title="الحساب" className="p-2">
-            <User className="w-6 h-6 text-primary-foreground" />
-          </Link>
         </div>
 
         {/* Centered brand */}
@@ -32,10 +32,18 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Spacer to balance layout */}
-        <div className="opacity-0 flex items-center gap-3">
-          <div className="h-9 w-9" />
-          <div className="h-9 w-9" />
+        {/* Left actions: Account */}
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-primary-foreground hover:bg-primary-foreground/20 p-2"
+            onClick={() => navigate("/auth")}
+            aria-label="الحساب"
+            title="الحساب"
+          >
+            <User className="w-6 h-6" />
+          </Button>
         </div>
       </div>
 
