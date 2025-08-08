@@ -13,14 +13,14 @@ const Header: React.FC = () => {
             <ShoppingCart className="w-6 h-6 text-primary-foreground" />
           </Link>
           <Link to="/auth" aria-label="الحساب" title="الحساب" className="p-2">
-            <User className="w-6 h-6 text-primary-foreground" />
+            <User className="w-6 h-6 text-primary-foreground/45" />
           </Link>
         </div>
 
         {/* Centered brand */}
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
           <div className="flex flex-col items-center leading-none">
-            <span className="text-2xl font-bold text-primary-foreground">بـــنات</span>
+            <span className="text-2xl font-bold text-primary-foreground">بــــــنات</span>
             <span className="text-sm font-light text-primary-foreground/90 tracking-wide">BENAT</span>
           </div>
         </div>
