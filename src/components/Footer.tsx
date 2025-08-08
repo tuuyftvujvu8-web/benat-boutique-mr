@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
           <ul className="space-y-2 text-sm">
             <li>
               واتساب: {" "}
-              <a className="text-primary underline hover:opacity-80" href="https://wa.me/22249055137" target="_blank" rel="noopener noreferrer">+222 49055137</a>
+              <a className="text-primary underline hover:opacity-80" href="https://wa.me/22249055137" target="_blank" rel="noopener noreferrer">+222 49262003</a>
             </li>
             <li>
               البريد الإلكتروني: {" "}
-              <a className="text-primary underline hover:opacity-80" href="mailto:moubarakouhoussein@gmail.com">moubarakouhoussein@gmail.com</a>
+              <a className="text-primary underline hover:opacity-80" href="mailto:moubarakouhoussein@gmail.com">noura.el.housein@gmail.com</a>
             </li>
             <li>
               الموقع الجغرافي: {" "}
