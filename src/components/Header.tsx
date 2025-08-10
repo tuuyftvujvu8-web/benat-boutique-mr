@@ -9,6 +9,21 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full bg-banat-pink text-primary-foreground shadow-soft" role="banner">
       <div className="container relative flex items-center justify-between h-16">
+        {/* السلة في أقصى اليسار */}
+        <div className="flex items-center gap-3">
+          <Link to="/cart" aria-label="cart" title="cart" className="p-2">
+            <ShoppingCart className="w-6 h-6 text-primary-foreground" />
+          </Link>
+        </div>
+
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+          <div className="flex flex-col items-center leading-none">
+            <span className="text-2xl font-bold text-primary-foreground">بــــــنات</span>
+            <span className="text-sm font-light text-primary-foreground/90 tracking-wide">BENAT</span>
+          </div>
+        </div>
+
+        {/* الحساب في أقصى اليمين */}
         <div className="flex items-center gap-3">
           <Button
             variant="ghost"
@@ -20,19 +35,6 @@ const Header: React.FC = () => {
           >
             <User className="w-6 h-6 text-primary-foreground" />
           </Button>
-        </div>
-
-        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-          <div className="flex flex-col items-center leading-none">
-            <span className="text-2xl font-bold text-primary-foreground">بــــــنات</span>
-            <span className="text-sm font-light text-primary-foreground/90 tracking-wide">BENAT</span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <Link to="/cart" aria-label="cart" title="cart" className="p-2">
-            <ShoppingCart className="w-6 h-6 text-primary-foreground" />
-          </Link>
         </div>
       </div>
 
