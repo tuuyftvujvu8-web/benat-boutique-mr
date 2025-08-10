@@ -2,28 +2,38 @@ import Header from "@/components/Header";
 import CategoryCard from "@/components/CategoryCard";
 import Footer from "@/components/Footer";
 import VideoSection from "@/components/VideoSection";
+import { supabase } from "@/integrations/supabase/client";
 import React from "react";
 
-const categories = [
-  {
-    title: "ملحف",
-    imageUrl: "https://i.postimg.cc/DzDqjCwx/alalalia-white-100-002-039-alt3-sq-gy-2000x2000.jpg",
-  },
-  {
-    title: "حقائب",
-    imageUrl: "https://i.postimg.cc/Hk605WDD/attar-bottle-manufacturer-300x300.jpg",
-  },
-  {
-    title: "فساتين",
-    imageUrl: "https://i.postimg.cc/CxhHzB2s/FB-IMG-1674512139138-1-1.jpg",
-  },
-  {
-    title: "عطور",
-    imageUrl: "https://i.postimg.cc/mrhYSxBc/IMG-20250612-WA0019.jpg",
-  },
-];
+interface Category {
+  id: string;
+  name: string;
+  image_url?: string;
+  slug: string;
+}
 
 const Index = () => {
+  const [categories, setCategories] = React.useState<Category[]>([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await supabase
+          .from('categories')
+          .select('*')
+          .order('position', { ascending: true });
+        
+        setCategories(data || []);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
   React.useEffect(() => {
     // Structured data
     const data = {
@@ -54,11 +64,27 @@ const Index = () => {
       <main className="container py-8">
         <h1 className="sr-only">بنات Benat - متجر ملابس نسائية وحقائب وعطور في موريتانيا</h1>
         <section aria-label="الفئات الرئيسية">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {categories.map((c) => (
-              <CategoryCard key={c.title} title={c.title} imageUrl={c.imageUrl} />
-            ))}
-          </div>
+          {loading ? (
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="aspect-[3/4] bg-muted rounded-lg" />
+                  <div className="mt-2 h-4 bg-muted rounded" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {categories.map((c) => (
+                <CategoryCard 
+                  key={c.id} 
+                  title={c.name} 
+                  imageUrl={c.image_url || ''} 
+                  slug={c.slug}
+                />
+              ))}
+            </div>
+          )}
         </section>
         <VideoSection />
       </main>
