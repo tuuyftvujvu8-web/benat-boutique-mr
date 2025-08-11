@@ -1,8 +1,3 @@
-import { MapPin, Phone, Mail } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-
-
 {/* Footer */}
       <footer className="bg-muted py-12 mt-16">
         <div className="container mx-auto px-4">
@@ -52,8 +47,7 @@ import { Button } from "@/components/ui/button";
               © 2025 متجر {settings.site_name_ar || 'بنات'}/{settings.site_name_en || 'BENAT'}. جميع الحقوق محفوظة.
             </p>
           </div>
-
-      </div>
+        </div>
 
     </footer>
 
