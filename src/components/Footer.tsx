@@ -48,6 +48,4 @@
             </p>
           </div>
         </div>
-
-
 export default Footer;
