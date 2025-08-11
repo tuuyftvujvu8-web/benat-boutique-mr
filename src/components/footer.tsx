@@ -73,7 +73,7 @@ const Footer = () => {
 
               <Mail className="h-5 w-5" />
 
-              <span className="text-sm">noura.el.houssein@gmail.com</span>
+              <span className="text-sm">nour.el.houssein@gmail.com</span>
 
             </Button>
 
