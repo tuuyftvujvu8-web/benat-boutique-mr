@@ -14,7 +14,7 @@ const Footer = () => {
 
   const handleEmailClick = () => {
 
-    window.open("mailto:noura.el.houssein@gmail.com", "_blank");
+    window.open("mailto:nour.el.houssein@gmail.com", "_blank");
 
   };
 
