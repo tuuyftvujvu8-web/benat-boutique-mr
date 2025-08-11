@@ -24,37 +24,37 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-muted py-12 mt-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
+    <footer className="bg-muted py-6 mt-8"> {/* تقليل المساحة الرأسية */}
+      <div className="container mx-auto px-3"> {/* تقليل الحشو الجانبي */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-right"> {/* تقليل المسافات بين الأعمدة */}
           {/* معلومات التواصل */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">معلومات التواصل</h3>
-            <div className="space-y-3">
+            <h3 className="text-base font-semibold text-foreground mb-2">معلومات التواصل</h3> {/* تصغير حجم الخط */}
+            <div className="space-y-2"> {/* تقليل المسافات بين العناصر */}
               <Button
                 variant="ghost"
                 onClick={handleWhatsAppClick}
-                className="text-muted-foreground hover:text-primary flex items-center gap-2 w-full justify-center md:justify-start"
+                className="text-muted-foreground hover:text-primary flex items-center gap-1 w-full justify-center md:justify-start text-sm" {/* تصغير حجم الخط */}
               >
-                <Phone className="h-4 w-4 text-primary" />
+                <Phone className="h-3 w-3 text-primary" /> {/* تصغير حجم الأيقونة */}
                 <span>{settings.whatsapp_number}</span>
               </Button>
               
               <Button
                 variant="ghost"
                 onClick={handleEmailClick}
-                className="text-muted-foreground hover:text-primary flex items-center gap-2 w-full justify-center md:justify-start"
+                className="text-muted-foreground hover:text-primary flex items-center gap-1 w-full justify-center md:justify-start text-sm" {/* تصغير حجم الخط */}
               >
-                <Mail className="h-4 w-4 text-primary" />
-                <span>{settings.email}</span>
+                <Mail className="h-3 w-3 text-primary" /> {/* تصغير حجم الأيقونة */}
+                <span className="truncate">{settings.email}</span> {/* تقصير النص الطويل */}
               </Button>
               
               <Button
                 variant="ghost"
                 onClick={handleLocationClick}
-                className="text-muted-foreground hover:text-primary flex items-center gap-2 w-full justify-center md:justify-start"
+                className="text-muted-foreground hover:text-primary flex items-center gap-1 w-full justify-center md:justify-start text-sm" {/* تصغير حجم الخط */}
               >
-                <MapPin className="h-4 w-4 text-primary" />
+                <MapPin className="h-3 w-3 text-primary" /> {/* تصغير حجم الأيقونة */}
                 <span>الموقع الجغرافي</span>
               </Button>
             </div>
@@ -62,24 +62,24 @@ const Footer = () => {
           
           {/* الشعار */}
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-bold text-primary mb-2">{settings.site_name_ar}</h2>
-            <p className="text-muted-foreground">{settings.site_name_en}</p>
+            <h2 className="text-xl font-bold text-primary mb-1">{settings.site_name_ar}</h2> {/* تصغير حجم الخط */}
+            <p className="text-muted-foreground text-sm">{settings.site_name_en}</p> {/* تصغير حجم الخط */}
           </div>
           
           {/* روابط سريعة */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">روابط سريعة</h3>
-            <div className="space-y-2">
-              <div><Link to="/" className="text-muted-foreground hover:text-primary">الرئيسية</Link></div>
-              <div><Link to="/cart" className="text-muted-foreground hover:text-primary">سلة المشتريات</Link></div>
-              <div><Link to="/auth" className="text-muted-foreground hover:text-primary">تسجيل الدخول</Link></div>
+            <h3 className="text-base font-semibold text-foreground mb-2">روابط سريعة</h3> {/* تصغير حجم الخط */}
+            <div className="space-y-1"> {/* تقليل المسافات بين العناصر */}
+              <div><Link to="/" className="text-muted-foreground hover:text-primary text-sm">الرئيسية</Link></div> {/* تصغير حجم الخط */}
+              <div><Link to="/cart" className="text-muted-foreground hover:text-primary text-sm">سلة المشتريات</Link></div> {/* تصغير حجم الخط */}
+              <div><Link to="/auth" className="text-muted-foreground hover:text-primary text-sm">تسجيل الدخول</Link></div> {/* تصغير حجم الخط */}
             </div>
           </div>
         </div>
         
         {/* حقوق النشر */}
-        <div className="border-t border-border mt-8 pt-8 text-center">
-          <p className="text-muted-foreground">
+        <div className="border-t border-border mt-4 pt-4 text-center"> {/* تقليل المساحة الرأسية */}
+          <p className="text-muted-foreground text-xs"> {/* تصغير حجم الخط */}
             © 2025 متجر {settings.site_name_ar}/{settings.site_name_en}. جميع الحقوق محفوظة.
           </p>
         </div>
