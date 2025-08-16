@@ -7,191 +7,109 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "13.0.4"
   }
   public: {
     Tables: {
-      categories: {
+      game_sessions: {
         Row: {
-          created_at: string | null
+          completed_at: string | null
+          completed_questions: Json
+          current_question: number
+          current_stage: number
           id: string
-          image_url: string | null
-          name: string
-          position: number | null
-          slug: string | null
-          updated_at: string | null
+          is_completed: boolean
+          player_name: string
+          score: number
+          started_at: string
         }
         Insert: {
-          created_at?: string | null
+          completed_at?: string | null
+          completed_questions?: Json
+          current_question?: number
+          current_stage?: number
           id?: string
-          image_url?: string | null
-          name: string
-          position?: number | null
-          slug?: string | null
-          updated_at?: string | null
+          is_completed?: boolean
+          player_name: string
+          score?: number
+          started_at?: string
         }
         Update: {
-          created_at?: string | null
+          completed_at?: string | null
+          completed_questions?: Json
+          current_question?: number
+          current_stage?: number
           id?: string
-          image_url?: string | null
-          name?: string
-          position?: number | null
-          slug?: string | null
-          updated_at?: string | null
+          is_completed?: boolean
+          player_name?: string
+          score?: number
+          started_at?: string
         }
         Relationships: []
       }
-      orders: {
+      high_scores: {
         Row: {
-          created_at: string | null
-          guest_email: string | null
-          guest_phone: string | null
+          completion_time: unknown | null
+          created_at: string
           id: string
-          items: Json
-          status: string | null
-          total_mru: number
-          user_id: string | null
+          player_name: string
+          stage_reached: number
+          total_score: number
         }
         Insert: {
-          created_at?: string | null
-          guest_email?: string | null
-          guest_phone?: string | null
+          completion_time?: unknown | null
+          created_at?: string
           id?: string
-          items: Json
-          status?: string | null
-          total_mru: number
-          user_id?: string | null
+          player_name: string
+          stage_reached: number
+          total_score: number
         }
         Update: {
-          created_at?: string | null
-          guest_email?: string | null
-          guest_phone?: string | null
+          completion_time?: unknown | null
+          created_at?: string
           id?: string
-          items?: Json
-          status?: string | null
-          total_mru?: number
-          user_id?: string | null
+          player_name?: string
+          stage_reached?: number
+          total_score?: number
         }
         Relationships: []
       }
-      product_images: {
+      questions: {
         Row: {
-          created_at: string | null
+          correct_answer: number
+          created_at: string
+          difficulty: number
           id: string
-          product_id: string
-          sort_order: number | null
-          url: string
+          options: Json
+          points: number
+          question_text: string
+          stage: number
+          updated_at: string
         }
         Insert: {
-          created_at?: string | null
+          correct_answer: number
+          created_at?: string
+          difficulty?: number
           id?: string
-          product_id: string
-          sort_order?: number | null
-          url: string
+          options: Json
+          points?: number
+          question_text: string
+          stage: number
+          updated_at?: string
         }
         Update: {
-          created_at?: string | null
+          correct_answer?: number
+          created_at?: string
+          difficulty?: number
           id?: string
-          product_id?: string
-          sort_order?: number | null
-          url?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "product_images_product_id_fkey"
-            columns: ["product_id"]
-            isOneToOne: false
-            referencedRelation: "products"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      products: {
-        Row: {
-          category_id: string | null
-          created_at: string | null
-          description: string | null
-          id: string
-          is_active: boolean | null
-          name: string
-          price_mru: number
-          rating: number | null
-          rating_count: number | null
-          short_description: string | null
-          updated_at: string | null
-          video_url: string | null
-        }
-        Insert: {
-          category_id?: string | null
-          created_at?: string | null
-          description?: string | null
-          id?: string
-          is_active?: boolean | null
-          name: string
-          price_mru: number
-          rating?: number | null
-          rating_count?: number | null
-          short_description?: string | null
-          updated_at?: string | null
-          video_url?: string | null
-        }
-        Update: {
-          category_id?: string | null
-          created_at?: string | null
-          description?: string | null
-          id?: string
-          is_active?: boolean | null
-          name?: string
-          price_mru?: number
-          rating?: number | null
-          rating_count?: number | null
-          short_description?: string | null
-          updated_at?: string | null
-          video_url?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "products_category_id_fkey"
-            columns: ["category_id"]
-            isOneToOne: false
-            referencedRelation: "categories"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      site_settings: {
-        Row: {
-          email: string | null
-          hero_video_url: string | null
-          id: number
-          logo_text_ar: string | null
-          logo_text_en: string | null
-          map_url: string | null
-          updated_at: string | null
-          whatsapp: string | null
-        }
-        Insert: {
-          email?: string | null
-          hero_video_url?: string | null
-          id?: number
-          logo_text_ar?: string | null
-          logo_text_en?: string | null
-          map_url?: string | null
-          updated_at?: string | null
-          whatsapp?: string | null
-        }
-        Update: {
-          email?: string | null
-          hero_video_url?: string | null
-          id?: number
-          logo_text_ar?: string | null
-          logo_text_en?: string | null
-          map_url?: string | null
-          updated_at?: string | null
-          whatsapp?: string | null
+          options?: Json
+          points?: number
+          question_text?: string
+          stage?: number
+          updated_at?: string
         }
         Relationships: []
       }
@@ -220,8 +138,8 @@ export type Database = {
     Functions: {
       has_role: {
         Args: {
-          _user_id: string
           _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
         }
         Returns: boolean
       }
